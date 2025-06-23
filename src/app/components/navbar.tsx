@@ -1,6 +1,6 @@
-// components/Navbar.tsx
+'use client';
+import Link from 'next/link';
 import { useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -11,16 +11,16 @@ export default function Navbar() {
     border-[1px] border-[rgba(255,255,255,0.3)] shadow-md w-full top-0 z-50 fixed backdrop-blur-sm"
     >
       <div className="flex mx-auto py-3 px-10 justify-between items-center">
-        <Link to="/" className="font-bold text-white text-2xl">
+        <Link href="/" className="font-bold text-white text-2xl">
           Logo
         </Link>
 
         {/* desktop-layout */}
         <ul className="font-medium text-white  gap-8 hidden md:flex">
-          <NavItem to="/about">About</NavItem>
-          <NavItem to="/">Facilities</NavItem>
-          <NavItem to="/">Services</NavItem>
-          <NavItem to="/contact">Contact</NavItem>
+          <NavItem href="/about">About</NavItem>
+          <NavItem href="/">Facilities</NavItem>
+          <NavItem href="/">Services</NavItem>
+          <NavItem href="/contact">Contact</NavItem>
         </ul>
 
         {/* mobile-button */}
@@ -43,13 +43,13 @@ export default function Navbar() {
       {/* mobile-layout */}
       {open && (
         <ul className="bg-white font-medium space-y-3 shadow-md py-4 px-6 text-gray-700 md:hidden">
-          <NavItem to="/" onClick={() => setOpen(false)}>
+          <NavItem href="/" onClick={() => setOpen(false)}>
             Home
           </NavItem>
-          <NavItem to="/about" onClick={() => setOpen(false)}>
+          <NavItem href="/about" onClick={() => setOpen(false)}>
             About
           </NavItem>
-          <NavItem to="/contact" onClick={() => setOpen(false)}>
+          <NavItem href="/contact" onClick={() => setOpen(false)}>
             Contact
           </NavItem>
         </ul>
@@ -59,19 +59,23 @@ export default function Navbar() {
 }
 
 function NavItem({
-  to,
+  href,
   children,
   onClick,
 }: {
-  to: string;
+  href: string;
   children: React.ReactNode;
   onClick?: () => void;
 }) {
   return (
     <li>
-      <NavLink to={to} onClick={onClick} className={`block text-black `}>
+      <Link
+        href={href}
+        onClick={onClick}
+        className="text-black block hover:text-blue-500"
+      >
         {children}
-      </NavLink>
+      </Link>
     </li>
   );
 }

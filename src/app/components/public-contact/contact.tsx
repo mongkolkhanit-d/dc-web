@@ -1,10 +1,9 @@
+'use client';
 import { useEffect, useState } from 'react';
 import HomeFooter from '../public-home/home-content/footer';
-import AboutContent1 from './about-content/content-1';
-import AboutContent2 from './about-content/content-2';
-import AboutContent3 from './about-content/content-3';
+import ContactContent1 from './contact-content/content-1';
 
-export default function About() {
+export default function Contact() {
   const [showButton, setShowButton] = useState(false);
 
   useEffect(() => {
@@ -22,15 +21,13 @@ export default function About() {
 
   return (
     <div className="bg-[#dfdfdf] flex flex-col h-auto w-screen items-center justify-start overflow-y-auto">
-      <AboutContent1 />
-      <AboutContent2 />
-      <AboutContent3 />
-      <HomeFooter />
+      <ContactContent1 />
 
+      <HomeFooter />
       {showButton && (
         <button
           onClick={scrollToTop}
-          className={`bg-black/50 rounded-full fixed bottom-8 right-8 transition-opacity duration-500 ${
+          className={`bg-black/50 hover:bg-black/70 cursor-pointer rounded-full fixed bottom-8 right-8 transition-all duration-500 shadow-lg ${
             showButton ? 'opacity-100' : 'opacity-0'
           }`}
         >

@@ -1,4 +1,4 @@
-import '../../../styles/home.css';
+import '../../../../styles/home.css';
 
 type HomeContent1Props = {
   onScrollToContent2: () => void;

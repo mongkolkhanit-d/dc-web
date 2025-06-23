@@ -1,3 +1,4 @@
+'use client';
 import { useEffect, useRef, useState } from 'react';
 import HomeContent1 from './home-content/content-1';
 import HomeContent2 from './home-content/content-2';
@@ -55,7 +56,7 @@ export default function Home() {
       {showButton && (
         <button
           onClick={scrollToTop}
-          className={`bg-black/50 rounded-full fixed bottom-8 right-8 transition-opacity duration-500 ${
+          className={`bg-black/50 hover:bg-black/70 cursor-pointer rounded-full fixed bottom-8 right-8 transition-all duration-500 shadow-lg ${
             showButton ? 'opacity-100' : 'opacity-0'
           }`}
         >
