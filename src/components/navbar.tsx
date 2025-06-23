@@ -6,20 +6,24 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="bg-white shadow-md w-full top-0 z-50 fixed">
-      <div className="flex mx-auto max-w-7xl py-3 px-4 justify-between items-center">
-        <Link to="/" className="font-bold text-2xl text-blue-600">
-          MyLogo
+    <nav
+      className=" border-solid bg-[rgba(255,255,255,0.2)] 
+    border-[1px] border-[rgba(255,255,255,0.3)] shadow-md w-full top-0 z-50 fixed backdrop-blur-sm"
+    >
+      <div className="flex mx-auto py-3 px-10 justify-between items-center">
+        <Link to="/" className="font-bold text-white text-2xl">
+          Logo
         </Link>
 
-        {/* เมนูปกติ (desktop) */}
-        <ul className="font-medium text-gray-700 gap-8 hidden md:flex">
-          <NavItem to="/">Home</NavItem>
+        {/* desktop-layout */}
+        <ul className="font-medium text-white  gap-8 hidden md:flex">
           <NavItem to="/about">About</NavItem>
+          <NavItem to="/">Facilities</NavItem>
+          <NavItem to="/">Services</NavItem>
           <NavItem to="/contact">Contact</NavItem>
         </ul>
 
-        {/* ปุ่ม toggle สำหรับมือถือ */}
+        {/* mobile-button */}
         <button
           className="md:hidden"
           onClick={() => setOpen(!open)}
@@ -36,7 +40,7 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* เมนูมือถือ */}
+      {/* mobile-layout */}
       {open && (
         <ul className="bg-white font-medium space-y-3 shadow-md py-4 px-6 text-gray-700 md:hidden">
           <NavItem to="/" onClick={() => setOpen(false)}>
@@ -65,13 +69,7 @@ function NavItem({
 }) {
   return (
     <li>
-      <NavLink
-        to={to}
-        onClick={onClick}
-        className={({ isActive }) =>
-          `block hover:text-blue-600 ${isActive ? 'text-blue-600' : ''}`
-        }
-      >
+      <NavLink to={to} onClick={onClick} className={`block text-black `}>
         {children}
       </NavLink>
     </li>
