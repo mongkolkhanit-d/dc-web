@@ -1,4 +1,4 @@
-import Home from '@/app/components/public-home/home';
+import Home from '@/components/public-home/home';
 
 export const metadata = {
   title: 'หน้าหลัก | MyWebsite',

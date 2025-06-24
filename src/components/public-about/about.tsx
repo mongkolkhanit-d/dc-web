@@ -1,5 +1,6 @@
 'use client';
 import { useEffect, useState } from 'react';
+
 import HomeFooter from '../public-home/home-content/footer';
 import AboutContent1 from './about-content/content-1';
 import AboutContent2 from './about-content/content-2';
